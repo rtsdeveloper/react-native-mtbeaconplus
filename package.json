@@ -1,5 +1,5 @@
 {
-  "name": "react-native-mtbeaconplus",
+  "name": "@rts-developer/react-native-mtbeaconplus",
   "title": "React Native Mtbeacon Plus",
   "version": "1.0.1",
   "description": "Support for iOS and Android MTBeaconPlus",
