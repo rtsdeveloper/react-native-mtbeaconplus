@@ -1,0 +1,27 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.mtbeaconplus" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="23"
+6-->/Users/mac/Project/hrm-app/node_modules/react-native-mtbeacon-plus/android/src/main/AndroidManifest.xml
+7        android:targetSdkVersion="34" />
+7-->/Users/mac/Project/hrm-app/node_modules/react-native-mtbeacon-plus/android/src/main/AndroidManifest.xml
+8
+9    <uses-permission
+9-->/Users/mac/Project/hrm-app/node_modules/react-native-mtbeacon-plus/android/src/main/AndroidManifest.xml:3:5-95
+10        android:name="android.permission.BLUETOOTH"
+10-->/Users/mac/Project/hrm-app/node_modules/react-native-mtbeacon-plus/android/src/main/AndroidManifest.xml:3:22-65
+11        android:maxSdkVersion="30" />
+11-->/Users/mac/Project/hrm-app/node_modules/react-native-mtbeacon-plus/android/src/main/AndroidManifest.xml:3:66-92
+12    <uses-permission
+12-->/Users/mac/Project/hrm-app/node_modules/react-native-mtbeacon-plus/android/src/main/AndroidManifest.xml:4:5-101
+13        android:name="android.permission.BLUETOOTH_ADMIN"
+13-->/Users/mac/Project/hrm-app/node_modules/react-native-mtbeacon-plus/android/src/main/AndroidManifest.xml:4:22-71
+14        android:maxSdkVersion="30" />
+14-->/Users/mac/Project/hrm-app/node_modules/react-native-mtbeacon-plus/android/src/main/AndroidManifest.xml:4:72-98
+15    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+15-->/Users/mac/Project/hrm-app/node_modules/react-native-mtbeacon-plus/android/src/main/AndroidManifest.xml:5:5-73
+15-->/Users/mac/Project/hrm-app/node_modules/react-native-mtbeacon-plus/android/src/main/AndroidManifest.xml:5:22-70
+16
+17</manifest>

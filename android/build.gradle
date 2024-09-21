@@ -1,0 +1,52 @@
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+        maven {
+          url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.0'
+        classpath 'gradle.plugin.org.codehaus.groovy:groovy-android-gradle-plugin:3.0.0'
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: "org.codehaus.groovy.android"
+
+android {
+    compileSdkVersion safeExtGet('compileSdkVersion', 34)
+    buildToolsVersion safeExtGet('buildToolsVersion', '27.0.3')
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion safeExtGet('targetSdkVersion', 34)
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    maven {
+        url "$projectDir/../../../node_modules/react-native/android"
+    }
+    maven {
+        url 'https://maven.google.com/'
+        name 'Google'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.facebook.react:react-native:0.67.3'
+    implementation files('libs/MTBeaconPlus.jar')
+    implementation 'no.nordicsemi.android:dfu:2.1.0'
+}
