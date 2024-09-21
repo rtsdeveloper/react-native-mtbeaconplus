@@ -2,22 +2,22 @@
   "name": "rn-mtbeacon-plus",
   "title": "React Native Mtbeacon Plus",
   "version": "1.0.1",
-  "description": "TODO",
+  "description": "Support for iOS and Android MTBeaconPlus SDK",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-mtbeacon-plus.git",
-    "baseUrl": "https://github.com/github_account/react-native-mtbeacon-plus"
+    "url": "git+https://github.com/rtsdeveloper/rn-mtbeacon-plus.git.git",
+    "baseUrl": "https://github.com/rtsdeveloper/rn-mtbeacon-plus.git"
   },
   "keywords": [
     "react-native"
   ],
   "author": {
-    "name": "GrooveTechnology",
-    "email": "product@groovetechnology.com"
+    "name": "RTS-Developer",
+    "email": "sharmaritesh9794@gmail.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
@@ -27,7 +27,7 @@
     "react-native": ">=0.60.0-rc.0 <1.0.x"
   },
   "devDependencies": {
-    "react": "^16.9.0",
+    "react": "^16.8.1",
     "react-native": "^0.61.5"
   }
 }
