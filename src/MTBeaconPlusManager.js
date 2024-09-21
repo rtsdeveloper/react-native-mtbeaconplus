@@ -1,57 +1,77 @@
 // @flow
 'use strict'
 import { MTBeaconPlusModule, EventEmitter } from './MTBeaconPlusModule'
-import { State } from './TypeDefinition'
+import { useEffect, useRef } from 'react';
+import { State } from './TypeDefinition';
 
-export class MTBeaconPlusManager {
-    // Scan subscriptions
-    _scanEventSubscription: ?EventEmitter
-    _stateChangeEventSubscription: ?EventEmitter
-    // Listening to events
-    _eventEmitter: EventEmitter
-  /**
-   * Creates an instance .
-   */
-  constructor() {
-    this._eventEmitter = new EventEmitter(MTBeaconPlusModule)
-    MTBeaconPlusModule.createClient()
-  }
+/**
+ * Custom hook for MTBeaconPlus functionality.
+ */
+export const useMTBeaconPlusManager = () => {
+  // Refs to store subscriptions (equivalent to class properties)
+  const scanEventSubscription = useRef<?EventEmitter>(null);
+  const stateChangeEventSubscription = useRef<?EventEmitter>(null);
+  const eventEmitter = new EventEmitter(MTBeaconPlusModule);
 
-  destroy() {
-    if (this.stateChangeEventSubscription != null) {
-      this.stateChangeEventSubscription.remove()
-      this.stateChangeEventSubscription = null
+  // Create client on mount
+  useEffect(() => {
+    MTBeaconPlusModule.createClient();
+
+    return () => {
+      // Clean up on unmount
+      if (stateChangeEventSubscription.current != null) {
+        stateChangeEventSubscription.current.remove();
+        stateChangeEventSubscription.current = null;
+      }
+      MTBeaconPlusModule.destroyClient();
+    };
+  }, []);
+
+  // Start scanning
+  const startScan = (listener: (devices: ?Collection) => void) => {
+    stopScan(); // Ensure no scan is already running
+    scanEventSubscription.current = eventEmitter.addListener(
+      MTBeaconPlusModule.ScanEvent,
+      listener
+    );
+    MTBeaconPlusModule.startScan();
+  };
+
+  // Stop scanning
+  const stopScan = () => {
+    if (scanEventSubscription.current != null) {
+      scanEventSubscription.current.remove();
+      scanEventSubscription.current = null;
     }
-    // Destroy native module object
-    MTBeaconPlusModule.destroyClient()
-  }
+    MTBeaconPlusModule.stopScan();
+  };
 
-  startScan(listener: (devices: ?Collection) => void) {
-    this.stopScan()
-    this._scanEventSubscription = this._eventEmitter.addListener(MTBeaconPlusModule.ScanEvent, listener)
-    MTBeaconPlusModule.startScan()
-  }
-
-  stopScan() {
-    if (this._scanEventSubscription != null) {
-      this._scanEventSubscription.remove()
-      this._scanEventSubscription = null
-    }
-    MTBeaconPlusModule.stopScan()
-  }
-
-  state(): Promise<$Keys<typeof State>> {
+  // Get current state
+  const getState = (): Promise<$Keys<typeof State>> => {
     return MTBeaconPlusModule.state();
-  }
+  };
 
-  onStateChange(listener: (state: ?String) => void) {
-    this.stateChangeEventSubscription = this._eventEmitter.addListener(MTBeaconPlusModule.StateChangeEvent, listener)
-  }
+  // Listen for state changes
+  const onStateChange = (listener: (state: ?String) => void) => {
+    stateChangeEventSubscription.current = eventEmitter.addListener(
+      MTBeaconPlusModule.StateChangeEvent,
+      listener
+    );
+  };
 
-  offStateChange() {
-    if (this.stateChangeEventSubscription != null) {
-      this.stateChangeEventSubscription.remove()
-      this.stateChangeEventSubscription = null
+  // Remove state change listener
+  const offStateChange = () => {
+    if (stateChangeEventSubscription.current != null) {
+      stateChangeEventSubscription.current.remove();
+      stateChangeEventSubscription.current = null;
     }
-  }
-}
+  };
+
+  return {
+    startScan,
+    stopScan,
+    getState,
+    onStateChange,
+    offStateChange,
+  };
+};

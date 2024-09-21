@@ -3,6 +3,7 @@
 
 import { NativeModules, NativeEventEmitter } from 'react-native'
 import { State } from './TypeDefinition'
+
 /**
  * Native BLE Module interface
  * @private
@@ -46,13 +47,13 @@ export interface MTBeaconPlusModuleInterface {
    */
   stopScan(): void;
 
-    /**
+  /**
    * Get current bluetooth state.
    * @private
    */
   state(): Promise<$Keys<typeof State>>;
 
-   // Events
+  // Events
 
   /**
    * New scanned event arrived
