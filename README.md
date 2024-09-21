@@ -50,7 +50,7 @@ iOS Installation :
 ```javascript
 import React, { useEffect } from 'react';
 // Importing from your package
-import { useMTBeaconPlusManager } from 'react-native-mtbeaconplus';
+import { useMTBeaconPlusManager } from '@rts-developer/react-native-mtbeaconplus';
 
 const BeaconScanner = () => {
   const { startScan, stopScan, getState, onStateChange, offStateChange } = useMTBeaconPlusManager();
