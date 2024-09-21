@@ -1,5 +1,5 @@
 
-# rn-mtbeacon-plus
+# @rts-developer/react-native-mtbeaconplus
 
 React Native module for Bluetooth Low Energy (BLE) scanning and device discovery.
 
@@ -10,6 +10,7 @@ React Native module for Bluetooth Low Energy (BLE) scanning and device discovery
  - Method & Events
  - Authors
  - Contributing
+
 ## Documentation
 Methods
 - startScan(listener: (devices: ?Collection) => void) - Starts scanning for nearby devices.
@@ -28,23 +29,28 @@ Events
 
 ## Installation
 
-Install my-project with npm:
+Installation with npm:
 
 ```bash
-  npm install rn-mtbeacon-plus --save
-  yarn add rn-mtbeacon-plus
+  npm i @rts-developer/react-native-mtbeaconplus --save
+  yarn add @rts-developer/react-native-mtbeaconplus
 ```
+Android Installation :
 To link the native module:
 
 ```bash
- react-native link rn-mtbeacon-plus
+ react-native link @rts-developer/react-native-mtbeaconplus
+```
+iOS Installation :
+```bash
+ pod 'react-native-mtbeacon-plus-swift', :path => '../node_modules/react-native-mtbeacon-plus'
 ```
 ## Usage/Examples
 
 ```javascript
 import React, { useEffect } from 'react';
 // Importing from your package
-import { useMTBeaconPlusManager } from 'rn-mtbeacon-plus';
+import { useMTBeaconPlusManager } from '@rts-developer/react-native-mtbeaconplus';
 
 const BeaconScanner = () => {
   const { startScan, stopScan, getState, onStateChange, offStateChange } = useMTBeaconPlusManager();

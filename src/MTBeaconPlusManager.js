@@ -8,7 +8,6 @@ import { State } from './TypeDefinition';
  * Custom hook for MTBeaconPlus functionality.
  */
 export const useMTBeaconPlusManager = () => {
-  // Refs to store subscriptions (equivalent to class properties)
   const scanEventSubscription = useRef<?EventEmitter>(null);
   const stateChangeEventSubscription = useRef<?EventEmitter>(null);
   const eventEmitter = new EventEmitter(MTBeaconPlusModule);
