@@ -43,7 +43,7 @@ To link the native module:
 ```
 iOS Installation :
 ```bash
- pod 'react-native-mtbeacon-plus-swift', :path => '../node_modules/react-native-mtbeacon-plus'
+ pod 'react-native-mtbeacon-plus-swift', :path => '../node_modules/@rts-developer/react-native-mtbeaconplus'
 ```
 ## Usage/Examples
 
