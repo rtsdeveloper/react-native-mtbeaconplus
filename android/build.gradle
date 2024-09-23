@@ -46,7 +46,7 @@ repositories {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.facebook.react:react-native:0.67.3'
+    implementation 'com.facebook.react:react-native:+'
     implementation files('libs/MTBeaconPlus.jar')
     implementation 'no.nordicsemi.android:dfu:2.1.0'
 }
