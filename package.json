@@ -1,5 +1,5 @@
 {
-  "name": "@rts-developer/react-native-mtbeaconplus",
+  "name": "rn-mtbeaconplus",
   "title": "React Native Mtbeacon Plus",
   "version": "1.0.0",
  "description": "A React Native module for supporting iOS and Android MTBeaconPlus devices. The MTBeaconPlus is a versatile Bluetooth Low Energy (BLE) beacon designed for indoor positioning and asset tracking. It offers high accuracy, long battery life, and easy integration with mobile devices.",

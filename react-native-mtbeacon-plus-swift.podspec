@@ -7,12 +7,12 @@ Pod::Spec.new do |s|
   s.version      = package["version"]
   s.summary      = package["description"]
 
-  s.homepage     = "https://github.com/rtsdeveloper/react-native-mtbeaconplus"
+  s.homepage     = "https://github.com/rtsdeveloper/rn-mtbeaconplus"
   s.license      = "MIT"
   # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
   s.authors      = { "RTS-Developer" => "sharmaritesh9794@gmail.com" }
   s.platforms    = { :ios => "9.0" }
-  s.source       = { :git => "https://github.com/rtsdeveloper/react-native-mtbeaconplus.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/rtsdeveloper/rn-mtbeaconplus.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{swift}"
   s.vendored_frameworks = "ios/MTBeaconPlus.framework", "ios/iOSDFULibrary.framework", "ios/ZIPFoundation.framework"
